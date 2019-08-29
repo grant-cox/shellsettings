@@ -1,0 +1,22 @@
+#Use zsh
+shell "/bin/zsh"
+
+autodetach on
+
+# Big scrollback
+defscrollback 5000
+
+term screen-256color
+
+# No annoying startup message
+startup_message off
+
+# Display the status line at the bottom
+hardstatus on
+hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-w%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+w%?%= %{= g}][ %{y}Load: %l %{g}][%{B}%D %d-%M-%Y %{W}%C:%s %A %{g}]'
+
+screen -L -t 'zsh' 0 zsh
+screen -L -t 'vim' 1 vim
+screen -L -t 'bpython2.7' 2 bpython 
+screen -t    'sudo htop' 3 htop
+select 0 
