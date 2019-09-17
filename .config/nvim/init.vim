@@ -1,66 +1,41 @@
 if has('win32') || has('win64')
-    let g:plugged_home = '~/AppData/Local/nvim/plugged'
+  let g:plugged_home = '~/AppData/Local/nvim/plugged'
 else
-    let g:plugged_home = '~/.vim/plugged'
+  let g:plugged_home = '~/.vim/plugged'
 endif
-
 " Plugins List
 call plug#begin(g:plugged_home)
-    " UI related
-    Plug 'chriskempson/base16-vim'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    
-    " Better Visual Guide
-    Plug 'Yggdroot/indentLine'
-    
-    " syntax check
-    Plug 'w0rp/ale'
-    
-    " Autocomplete
-    Plug 'ncm2/ncm2'
-    Plug 'roxma/nvim-yarp'
-    Plug 'ncm2/ncm2-bufword'
-    Plug 'ncm2/ncm2-path'
-    Plug 'ncm2/ncm2-jedi'
-    
-    " Formater
-    Plug 'Chiel92/vim-autoformat'
-    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-    
-    "Fuzzy Finder (file searcher)
-    Plug '/usr/local/opt/fzf'
-    Plug 'junegunn/fzf.vim'
-    
-    " Ultimate Hyper Git Setup
-    Plug 'tpope/vim-fugitive'
-    
-    " Git gutter to show changes to file
-    Plug 'airblade/vim-gitgutter'
-
-    " Latex goodies
-    Plug 'lervag/vimtex'
-
-    "Universal(ish) Linter
-    Plug 'dense-analysis/ale'
-    " https://github.com/neomake/neomake maker
-    Plug 'neomake/neomake'
-
-    " fuzzy file finder (installed with homebrew)
-    Plug '/usr/local/opt/fzf'
-
-    " ultimate vim plugin
-    Plug 'tpope/vim-fugitive'
-
-" Initialize plugin system
+  " UI related
+  Plug 'chriskempson/base16-vim'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  " C/C++ Highlighting
+  Plug 'octol/vim-cpp-enhanced-highlight'
+  " C/C++ Easy jump between .c and .h
+  Plug 'vim-scripts/a.vim'
+  " Better Visual Guide
+  Plug 'Yggdroot/indentLine'
+  " syntax check
+  Plug 'w0rp/ale'
+  " Autocomplete
+  Plug 'ncm2/ncm2'
+  Plug 'roxma/nvim-yarp'
+  Plug 'ncm2/ncm2-bufword'
+  Plug 'ncm2/ncm2-path'
+  Plug 'ncm2/ncm2-jedi'
+  " Formater
+  Plug 'Chiel92/vim-autoformat'
+  Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+  "Fuzzy Finder (file searcher)
+  Plug '/usr/local/opt/fzf'
+  Plug 'junegunn/fzf.vim'
+  " Ultimate Hyper Git Setup
+  Plug 'tpope/vim-fugitive'
+  " Git gutter to show changes to file
+  Plug 'airblade/vim-gitgutter'
 call plug#end()
+filetype plugin indent on
 
-
-"========================User Settings========================
-" for NeoVim Latex
-let g:vimtex_compiler_progname = 'nvr'
-" When writing a buffer (no delay), and on normal mode changes (after 750ms).
-call neomake#configure#automake('nw', 750)
 
 " Configurations Part
 " UI configuration
@@ -120,16 +95,17 @@ augroup NCM2
   " hides the menu. Use this mapping to close the menu and also start a new line.
   inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
   " uncomment this block if you use vimtex for LaTex
-  autocmd Filetype tex call ncm2#register_source({
-            \ 'name': 'vimtex',
-            \ 'priority': 8,
-            \ 'scope': ['tex'],
-            \ 'mark': 'tex',
-            \ 'word_pattern': '\w+',
-            \ 'complete_pattern': g:vimtex#re#ncm2,
-            \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-            \ })
+   autocmd Filetype tex call ncm2#register_source({
+             \ 'name': 'vimtex',
+             \ 'priority': 8,
+             \ 'scope': ['tex'],
+             \ 'mark': 'tex',
+             \ 'word_pattern': '\w+',
+             \ 'complete_pattern': g:vimtex#re#ncm2,
+             \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+             \ })
 augroup END
+"
 " Ale
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_text_changed = 'never'
@@ -137,9 +113,18 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {'python': ['flake8']}
+"
 " Airline
 let g:airline_left_sep  = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#ale#enabled = 1
 let airline#extensions#ale#error_symbol = 'E:'
 let airline#extensions#ale#warning_symbol = 'W:'
+
+" A - switching between files 
+" header / source
+nnoremap <F4> :A<CR>
+inoremap <F4> <ESC>:A<CR>a
+" file under cursor
+nnoremap <F2> :IH<CR>
+inoremap <F2> <ESC>:IH<CR>
