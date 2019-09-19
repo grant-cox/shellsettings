@@ -1,0 +1,45 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Grant Cox
+	email =
+    
+[color]
+    ui = true
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = red
+
+[alias]    
+    b = branch
+    bd = branch -D
+    c = commit 
+    ca = commit --amend
+    co = checkout
+    com = checkout master
+    coq = checkout qa
+    cob = checkout -b
+    cp = cherry-pick
+    f = fetch
+    lol = log --oneline
+    p = pull
+    pf = push --force
+    pdo = push --delete origin 
+    psu = push --set-upstream
+    psuo = push --set-upstream origin 
+    rbm = rebase origin/master
+    rsh = reset --hard
+    rbq = rebase origin/qa
+    s = status
