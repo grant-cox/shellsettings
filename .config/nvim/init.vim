@@ -130,3 +130,10 @@ inoremap <F4> <ESC>:A<CR>a
 " file under cursor
 nnoremap <F2> :IH<CR>
 inoremap <F2> <ESC>:IH<CR>
+
+" set latex files to line length of 80
+au BufRead,BufNewFile *.tex call SetVimOptions()
+function SetVimOptions()
+    setlocal textwidth=80
+    setlocal spell spelllang=en_us
+endfunction
