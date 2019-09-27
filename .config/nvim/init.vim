@@ -137,3 +137,5 @@ function SetVimOptions()
     setlocal textwidth=80
     setlocal spell spelllang=en_us
 endfunction
+
+cabb F Files
