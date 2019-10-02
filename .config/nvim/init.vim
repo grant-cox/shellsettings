@@ -5,36 +5,38 @@ else
 endif
 " Plugins List
 call plug#begin(g:plugged_home)
-  " UI related
-  Plug 'chriskempson/base16-vim'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-  " C/C++ Highlighting
-  Plug 'octol/vim-cpp-enhanced-highlight'
-  " C/C++ Easy jump between .c and .h
-  Plug 'vim-scripts/a.vim'
-  " Better Visual Guide
-  Plug 'Yggdroot/indentLine'
-  " syntax check
-  Plug 'w0rp/ale'
-  " Autocomplete
-  Plug 'ncm2/ncm2'
-  Plug 'roxma/nvim-yarp'
-  Plug 'ncm2/ncm2-bufword'
-  Plug 'ncm2/ncm2-path'
-  Plug 'ncm2/ncm2-jedi'
-  " Formater
-  Plug 'Chiel92/vim-autoformat'
-  Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-  "Fuzzy Finder (file searcher)
-  Plug '/usr/local/opt/fzf'
-  Plug 'junegunn/fzf.vim'
-  " Ultimate Hyper Git Setup
-  Plug 'tpope/vim-fugitive'
-  " Git gutter to show changes to file
-  Plug 'airblade/vim-gitgutter'
-  " latex
-  Plug 'lervag/vimtex'
+    " UI related
+    Plug 'chriskempson/base16-vim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    " C/C++ Highlighting
+    Plug 'octol/vim-cpp-enhanced-highlight'
+    " C/C++ Easy jump between .c and .h
+    Plug 'vim-scripts/a.vim'
+    " Better Visual Guide
+    Plug 'Yggdroot/indentLine'
+    " syntax check
+    Plug 'w0rp/ale'
+    " Autocomplete
+    Plug 'ncm2/ncm2'
+    Plug 'roxma/nvim-yarp'
+    Plug 'ncm2/ncm2-bufword'
+    Plug 'ncm2/ncm2-path'
+    Plug 'ncm2/ncm2-jedi'
+    " Formater
+    Plug 'Chiel92/vim-autoformat'
+    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+    "Fuzzy Finder (file searcher)
+    Plug '/usr/local/opt/fzf'
+    Plug 'junegunn/fzf.vim'
+    " Ultimate Hyper Git Setup
+    Plug 'tpope/vim-fugitive'
+    " Git gutter to show changes to file
+    Plug 'airblade/vim-gitgutter'
+    " latex
+    Plug 'lervag/vimtex'
+    " python
+    Plug 'vim-syntastic/syntastic'
 call plug#end()
 filetype plugin indent on
 
@@ -132,10 +134,36 @@ nnoremap <F2> :IH<CR>
 inoremap <F2> <ESC>:IH<CR>
 
 " set latex files to line length of 80
-au BufRead,BufNewFile *.tex call SetVimOptions()
-function SetVimOptions()
+au BufRead,BufNewFile *.tex call LatexInit()
+function LatexInit()
     setlocal textwidth=80
     setlocal spell spelllang=en_us
 endfunction
 
+" alias F to Files for fzf
 cabb F Files
+
+
+" Python Settings
+au BufRead,BufNewFile *.py call PyInit() 
+function! PyInit() """"""""""""""""""""""""""""""""""""""""""""""""
+" Ugly function because python script below is sensitive to indent
+
+" syntax highlighting
+let python_highlight_all=1
+syntax on
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" python with virtualenv support
+python << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+endfunction """"""""""""""""""""""""""""""""""""""""""""""""""""""
