@@ -140,6 +140,8 @@ function LatexInit()
     setlocal spell spelllang=en_us
 endfunction
 
+cabb tt :tabnew
+
 " alias F to Files for fzf
 cabb F Files
 
