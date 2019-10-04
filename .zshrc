@@ -109,13 +109,20 @@ case "${unameOut}" in
     MINGW*)     machine="MinGw";;
     *)          machine="UNKNOWN:${unameOut}"
 esac
-if [ "$machine"=="Mac" ]; then
+
+# OSX settings
+if [ "$machine" = "Mac" ]
+then
     alias bpython2.7='PYTHONPATH=~/githubs/bpython python2.7 -m bpython.cli'
     alias screen='/usr/local/Cellar/screen/4.6.2/bin/screen-*'
+    # latex
+    export PATH=/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/2.7/bin
+    export PATH=/Users/grantcox/Library/Python/2.7/bin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/2.7/bin
+    export PATH="/usr/local/opt/openssl/bin:$PATH"
 fi
 
 # Powerline
-if [[ -e /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+if [[ -f /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
     powerline-daemon -q
     POWERLINE_BASH_CONTINUATION=1
     POWERLINE_BASH_SELECT=1
@@ -127,14 +134,7 @@ fi
 alias clc=clear
 alias checkout='git checkout'
 alias weather="curl v2.wttr.in/Memphis"
-if [[ -e /usr/local/bin/nvim ]]; then
-    alias vim="nvim"
-fi
 
-
-
-export PATH=/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/2.7/bin
-export PATH="/usr/local/opt/openssl/bin:$PATH"
-export PATH=/Users/grantcox/Library/Python/2.7/bin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/2.7/bin
+[[ -f /usr/local/bin/nvim ]] && alias vim="nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
