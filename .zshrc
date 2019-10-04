@@ -115,10 +115,12 @@ if [ "$machine"=="Mac" ]; then
 fi
 
 # Powerline
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-source /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+if [[ -e /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    source /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
