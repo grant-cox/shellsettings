@@ -98,8 +98,21 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias bpython2.7='PYTHONPATH=~/githubs/bpython python2.7 -m bpython.cli'
-alias screen='/usr/local/Cellar/screen/4.6.2/bin/screen-*'
+
+
+# check os type
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine="Linux";;
+    Darwin*)    machine="Mac";;
+    CYGWIN*)    machine="Cygwin";;
+    MINGW*)     machine="MinGw";;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+if [[ macine=="Mac" ]]; then
+    alias bpython2.7='PYTHONPATH=~/githubs/bpython python2.7 -m bpython.cli'
+    alias screen='/usr/local/Cellar/screen/4.6.2/bin/screen-*'
+fi
 
 # Powerline
 powerline-daemon -q
