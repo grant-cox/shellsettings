@@ -17,6 +17,5 @@ hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-w%?%{= R}%n*%f %t%?
 
 screen -L -t 'zsh' 0 zsh
 screen -L -t 'vim' 1 vim
-screen -L -t 'bpython2.7' 2 bpython 
-screen -t    'sudo htop' 3 htop
+screen -L -t 'top' 2 top
 select 0 
