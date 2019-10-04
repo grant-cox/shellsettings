@@ -109,7 +109,7 @@ case "${unameOut}" in
     MINGW*)     machine="MinGw";;
     *)          machine="UNKNOWN:${unameOut}"
 esac
-if [[ macine=="Mac" ]]; then
+if [ "$machine"=="Mac" ]; then
     alias bpython2.7='PYTHONPATH=~/githubs/bpython python2.7 -m bpython.cli'
     alias screen='/usr/local/Cellar/screen/4.6.2/bin/screen-*'
 fi
