@@ -138,3 +138,7 @@ alias weather="curl v2.wttr.in/Memphis"
 [[ -f /usr/local/bin/nvim ]] && alias vim="nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f $HOME/.pythonrc.py ] && export PYTHONSTARTUP=$HOME/.pythonrc.py
+
+[ -f $HOME/.zshrc_extra ] && source $HOME/.zshrc_extra
