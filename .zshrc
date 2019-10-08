@@ -115,11 +115,16 @@ if [ "$machine" = "Mac" ]
 then
     alias bpython2.7='PYTHONPATH=~/githubs/bpython python2.7 -m bpython.cli'
     alias screen='/usr/local/Cellar/screen/4.6.2/bin/screen-*'
+    alias superbrew='brew update && brew upgrade && brew cask upgrade && brew cleanup'
+    [ -f /usr/local/bin/nvim ] && alias vim="nvim"
     # latex
     export PATH=/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/2.7/bin
     export PATH=/Users/grantcox/Library/Python/2.7/bin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/2.7/bin
     export PATH="/usr/local/opt/openssl/bin:$PATH"
 fi
+
+
+
 
 # Powerline
 if [[ -f /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
@@ -129,13 +134,17 @@ if [[ -f /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline
     source /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
 
+
+
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 alias clc=clear
 alias checkout='git checkout'
 alias weather="curl v2.wttr.in/Memphis"
 
-[[ -f /usr/local/bin/nvim ]] && alias vim="nvim"
+
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
