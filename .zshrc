@@ -3,11 +3,20 @@
 
 export PATH=/usr/local/texlive/2019/bin/x86_64-darwin:$PATH
 
+if [[ ! -d $HOME/.oh-my-zsh ]]; then
+    echo "installing oh-my-zsh"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+export ZSH_CUSTOM=$ZSH/custom
+
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-if [[ ! -d $ZSH_CUSTOM/themes/powerlevel10k ]]; then 
+if [[ ! -d $ZSH_CUSTOM/themes/powerlevel10k ]]; then
+    echo "installing powerlevel10k"
+    echo "$ZSH_CUSTOM"
     git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 fi
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -15,21 +24,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -56,14 +55,18 @@ COMPLETION_WAITING_DOTS="true"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
+########## Plugins
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+if [[ -d $ZSH_CUSTOM/plugins/zsh-suggestions ]]; then 
+    echo "installing zsh-suggestions"
+    git clone https://github.com/zsh-users/zsh-autosuggestions \
+        $ZSH_CUSTOM/plugins/zsh-autosuggestions
+fi
 plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
