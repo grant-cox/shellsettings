@@ -62,7 +62,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-if [[ -d $ZSH_CUSTOM/plugins/zsh-suggestions ]]; then 
+if [[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]]; then 
     echo "installing zsh-suggestions"
     git clone https://github.com/zsh-users/zsh-autosuggestions \
         $ZSH_CUSTOM/plugins/zsh-autosuggestions
