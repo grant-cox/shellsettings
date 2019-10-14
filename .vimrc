@@ -20,5 +20,3 @@ let python_highlight_all = 1
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
-
-execute pathogen#infect()
