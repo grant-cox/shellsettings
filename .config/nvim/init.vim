@@ -78,6 +78,8 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 set ruler
+set splitbelow
+set splitright
 
 
 set incsearch "incremental search
