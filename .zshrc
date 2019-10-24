@@ -106,6 +106,7 @@ then
     export PATH=/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/2.7/bin
     export PATH=/Users/grantcox/Library/Python/2.7/bin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/2.7/bin
     export PATH="/usr/local/opt/openssl/bin:$PATH"
+    export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib" # fix not finding libraries installed with homebrew
 fi
 
 
