@@ -43,6 +43,7 @@
     psu = push --set-upstream
     psuo = push --set-upstream origin 
     rbm = rebase origin/master
-    rsh = reset --hard
     rbq = rebase origin/qa
+    rbum = rebase upstream/master
+    rh = reset --hard
     s = status
