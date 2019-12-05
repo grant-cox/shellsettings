@@ -364,8 +364,8 @@ call plug#end()
         nnoremap <silent> <leader>f :Leaderf file --popup<CR>
 
         """"""""""""""""""""""""""""""ctrlsf""""""""""""""""""""""""""""""
-        nmap <silent> <space>F <Plug>CtrlSFPrompt<CR>
-        vmap <silent> <space>W <Plug>CtrlSFVwordPath<CR>
+        nmap <silent> <Space>F <Plug>CtrlSFPrompt
+        vmap <silent> <Space>W <Plug>CtrlSFVwordPath
     "}}
 
     "{{ Navigation and tags
@@ -403,8 +403,8 @@ call plug#end()
 
         """"""""""""""""""""""""""""buffer settings"""""""""""""""""""""""""""""
         " hotkey buffer previous and next
-        nnoremap <silent> <Space>n :bn
-        nnoremap <silent> <Space>p :bp
+        nnoremap <silent> <Space>n :bn<CR>
+        nnoremap <silent> <Space>p :bp<CR>
     "}}
 
     "{{ File editting

@@ -101,6 +101,7 @@ then
     alias screen='/usr/local/Cellar/screen/4.6.2/bin/screen-*'
     alias superbrew='brew update && brew upgrade && brew cask upgrade && brew cleanup'
     [ -f /usr/local/bin/nvim ] && alias vim="nvim"
+    [ -f /usr/local/bin/ctags ] && alias ctags="/usr/local/bin/ctags"
     # latex
     export PATH=/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/2.7/bin
     export PATH=/Users/grantcox/Library/Python/2.7/bin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/2.7/bin
