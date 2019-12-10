@@ -289,7 +289,7 @@ call plug#end()
     "}}
 
     "{{ C/C++ settings
-        au bufread,bufnewfile *.c,*.cpp,*.cc call cinit()
+        au bufread,bufnewfile *.c,*.cpp,*.cc,*.h,*.hh call s:cinit()
         function s:cinit()
             " a - switching between files 
             " header / source
@@ -530,10 +530,7 @@ call plug#end()
         let g:airline#extensions#tabline#buffer_nr_show = 1
 
         " Buffer number display format
-        let g:airline#extensions#tabline#buffer_nr_format = '%s. '
-
-        " Whether to show function or other tags on status line
-        let g:airline#extensions#tagbar#enabled = 1
+        let g:airline#extensions#tabline#buffer_nr_format = 'b%s '
 
         " Skip empty sections if there are nothing to show,
         " extracted from https://vi.stackexchange.com/a/9637/15292
@@ -554,6 +551,9 @@ call plug#end()
 
         " Speed up airline
         let g:airline_highlighting_cache = 1
+
+        " don't have startify change pwd on opening file
+        let g:startify_change_to_dir = 0
     "}}
 
     "{{ Misc plugin setting
