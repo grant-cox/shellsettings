@@ -185,7 +185,7 @@ call plug#begin(g:PLUGIN_HOME)
         endif
 
         " set latex files to line length of 80
-        au bufread,bufnewfile *.tex call latexinit()
+        au bufread,bufnewfile *.tex call s:latexinit()
         function s:latexinit()
             setlocal textwidth=80
             setlocal spell spelllang=en_us
