@@ -83,8 +83,8 @@ call plug#begin(g:PLUGIN_HOME)
         " Plug 'sickill/vim-monokai'
         " Plug 'whatyouhide/vim-gotham'
         " Plug 'rakr/vim-one'
-        " Plug 'kaicataldo/material.vim'
-        Plug 'chriskempson/base16-vim'
+        Plug 'kaicataldo/material.vim'
+        " Plug 'chriskempson/base16-vim'
  
         " colorful status line and theme
         Plug 'vim-airline/vim-airline'
@@ -365,7 +365,7 @@ call plug#end()
 
         """"""""""""""""""""""""""""""ctrlsf""""""""""""""""""""""""""""""
         nmap <silent> <Space>F <Plug>CtrlSFPrompt
-        vmap <silent> <Space>W <Plug>CtrlSFVwordPath
+        vmap <silent> <Space>F <Plug>CtrlSFVwordPath
     "}}
 
     "{{ Navigation and tags
@@ -501,21 +501,14 @@ call plug#end()
     "}}
 
     "{{ UI: Status line, look
-        """""""""""""""""""""""""""vim-airline setting""""""""""""""""""""""""""""""
-        " Set airline theme to a random one if it exists
-        "let s:candidate_airlinetheme = ['ayu_mirage', 'base16_flat',
-        "    \ 'base16_grayscale', 'lucius', 'base16_tomorrow', 'ayu_dark',
-        "    \ 'base16_adwaita', 'biogoo', 'distinguished', 'jellybeans',
-        "    \ 'luna', 'raven', 'term', 'vice', 'zenburn', 'tomorrow']
-        "let s:idx = utils#RandInt(0, len(s:candidate_airlinetheme)-1)
-        "let s:theme = s:candidate_airlinetheme[s:idx]
-
-        "if utils#HasAirlinetheme(s:theme)
-        "    let g:airline_theme=s:theme
-        "endif
-
-        let base16colorspace=256
-        colorscheme base16-spacemacs
+        
+        """""""""""""""""""Material Theme Settings"""""""""""""""""""
+        if (has('nvim'))
+            let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+        endif
+        let g:material_terminal_italics = 1
+        let g:material_theme_style = 'darker'
+        colorscheme material
         " True Color Support if it's avaiable in terminal
         if has("termguicolors")
             set termguicolors
