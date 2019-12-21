@@ -18,7 +18,7 @@ call plug#begin(g:PLUGIN_HOME)
         Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
 
         " Python source for deoplete
-        "Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+        Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
         " Vim source for deoplete
         Plug 'Shougo/neco-vim', { 'for': 'vim' }
@@ -36,7 +36,7 @@ call plug#begin(g:PLUGIN_HOME)
 
     "{{ Python-related plugins
         " Python completion, goto definition etc.
-        "Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+        Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 
         " Python syntax highlighting and more
         Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
@@ -83,7 +83,7 @@ call plug#begin(g:PLUGIN_HOME)
         " Plug 'sickill/vim-monokai'
         " Plug 'whatyouhide/vim-gotham'
         " Plug 'rakr/vim-one'
-        Plug 'kaicataldo/material.vim'
+        " Plug 'kaicataldo/material.vim'
         " Plug 'chriskempson/base16-vim'
  
         " colorful status line and theme
@@ -220,7 +220,7 @@ call plug#end()
     "{{ Auto-completion related
         """""""""""""""""""""""""""" deoplete settings""""""""""""""""""""""""""
         " Wheter to enable deoplete automatically after start nvim
-        let g:deoplete#enable_at_startup = 0
+        let g:deoplete#enable_at_startup = 1
 
         " Maximum candidate window width
         call deoplete#custom#source('_', 'max_menu_width', 80)
@@ -302,25 +302,22 @@ call plug#end()
     "}}
  
     "{{ Python-related
-        """""""""""""""""kite settings"""""""""""""""""
-        let g:kite_auto_complete=1
- 
          """""""""""""""""deoplete-jedi settings"""""""""""""""""""""""""""
          " Whether to show doc string
-        "let g:deoplete#sources#jedi#show_docstring = 1
+        let g:deoplete#sources#jedi#show_docstring = 1
  
         "" For large package, set autocomplete wait time longer
-       "let g:deoplete#sources#jedi#server_timeout = 48
+        let g:deoplete#sources#jedi#server_timeout = 48
 
-       "" Ignore jedi errors during completion
-       "let g:deoplete#sources#jedi#ignore_errors = 1
+        " Ignore jedi errors during completion
+        let g:deoplete#sources#jedi#ignore_errors = 1
 
-       """""""""""""""""""""""""jedi-vim settings"""""""""""""""""""
-       "" Disable autocompletion, because I use deoplete for auto-completion
-       "let g:jedi#completions_enabled = 0
+        """"""""""""""""""""""""jedi-vim settings"""""""""""""""""""
+        " Disable autocompletion, because I use deoplete for auto-completion
+        let g:jedi#completions_enabled = 0
 
-       "" Whether to show function call signature
-       "let g:jedi#show_call_signatures = '1'
+        " Whether to show function call signature
+        let g:jedi#show_call_signatures = '1'
 
         """""""""""""""""""""""""" semshi settings """""""""""""""""""""""""""""""
         " Do not highlight for all occurances of variable under cursor
@@ -502,13 +499,6 @@ call plug#end()
 
     "{{ UI: Status line, look
         
-        """""""""""""""""""Material Theme Settings"""""""""""""""""""
-        if (has('nvim'))
-            let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-        endif
-        let g:material_terminal_italics = 1
-        let g:material_theme_style = 'darker'
-        colorscheme material
         " True Color Support if it's avaiable in terminal
         if has("termguicolors")
             set termguicolors
