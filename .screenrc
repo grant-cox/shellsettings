@@ -16,6 +16,4 @@ hardstatus on
 hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-w%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+w%?%= %{= g}][ %{y}Load: %l %{g}][%{B}%D %d-%M-%Y %{W}%C:%s %A %{g}]'
 
 screen -L -t 'zsh' 0 zsh
-screen    -t 'vim' 1 vim
-screen    -t 'top' 2 top
 select 0 
