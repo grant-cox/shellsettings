@@ -83,7 +83,7 @@ call plug#begin(g:PLUGIN_HOME)
         " Plug 'sickill/vim-monokai'
         " Plug 'whatyouhide/vim-gotham'
         " Plug 'rakr/vim-one'
-        Plug 'kaicataldo/material.vim'
+        "                    Plug 'kaicataldo/material.vim'
         " Plug 'chriskempson/base16-vim'
  
         " colorful status line and theme
@@ -506,9 +506,9 @@ call plug#end()
         if (has('nvim'))
             let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
         endif
-        let g:material_terminal_italics = 1
-        let g:material_theme_style = 'darker'
-        colorscheme material
+        "                    let g:material_terminal_italics = 1
+        "                    let g:material_theme_style = 'darker'
+        "                    colorscheme material
         " True Color Support if it's avaiable in terminal
         if has("termguicolors")
             set termguicolors
@@ -628,6 +628,11 @@ call plug#end()
         cabb tt :tabnew
 
         set splitbelow
+
+        " remember the last position in the file
+        if has("autocmd")
+            au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+        endif
     "}}
 "}
 
