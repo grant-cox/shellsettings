@@ -100,7 +100,6 @@ then
     alias bpython2.7='PYTHONPATH=~/githubs/bpython python2.7 -m bpython.cli'
     alias screen='/usr/local/Cellar/screen/4.6.2/bin/screen-*'
     alias superbrew='brew update && brew upgrade && brew cask upgrade && brew cleanup'
-    [ -f /usr/local/bin/nvim ] && alias vim="nvim"
     [ -f /usr/local/bin/ctags ] && alias ctags="/usr/local/bin/ctags"
     # latex
     export PATH=/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/texlive/2019/bin/x86_64-darwin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/2.7/bin
@@ -128,8 +127,7 @@ alias clc=clear
 alias checkout='git checkout'
 alias weather="curl v2.wttr.in/Memphis"
 
-
-
+bindkey -v  # use vim keybindings like a hot shot
 
 # fuzzy file finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
