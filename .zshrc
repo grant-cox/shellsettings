@@ -67,7 +67,7 @@ if [[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions \
         $ZSH_CUSTOM/plugins/zsh-autosuggestions
 fi
-plugins=(git zsh-autosuggestions)
+plugins=(git git-auto-fetch zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 # User configuration
