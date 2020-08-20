@@ -1,8 +1,9 @@
 # This is Git's per-user configuration file.
-[user]
-	name = Grant Cox
-	email =
-    
+
+[include]
+    # global git config settings (email, GPG, etc)
+    path = .git_user.conf
+
 [color]
     ui = true
 
@@ -24,6 +25,7 @@
 
 [commit]
     verbose = true
+	gpgSign = true
 
 [alias]    
     b = branch
@@ -31,15 +33,16 @@
     c = commit 
     ca = commit --amend
     co = checkout
+    cob = checkout -b
     com = checkout master
     coq = checkout qa
-    cob = checkout -b
     cp = cherry-pick
     f = fetch
+    ladog = log --all --decorate --oneline --graph
     lol = log --oneline
     p = pull
-    pf = push --force
     pdo = push --delete origin 
+    pf = push --force
     psu = push --set-upstream
     psuo = push --set-upstream origin 
     rbm = rebase origin/master
@@ -47,3 +50,15 @@
     rbum = rebase upstream/master
     rh = reset --hard
     s = status
+
+[core]
+	autocrlf = input
+
+[pull]
+	rebase = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
